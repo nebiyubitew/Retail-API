@@ -1,0 +1,20 @@
+[
+  {
+    "id": 111,
+    "name": "orange",
+    "barcode":  "2130",
+    "rate":  2.15,
+    "productCategory": "organic"},
+  { 
+    "id": 112,
+    "name": "towel",
+    "barcode":  "2170",
+    "rate":  5.5,
+    "productCategory": "nonorganic"},
+  {
+    "id": 113,
+    "name": "sugar",
+    "barcode":  "1130",
+    "rate":  3.15,
+    "productCategory": "organic"}
+]

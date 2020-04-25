@@ -1,0 +1,7 @@
+{ 
+  "id": 111,
+  "name": "orange",
+  "barcode":  "2130",
+  "rate":  2.15,
+  "productCategory": "organic"
+}

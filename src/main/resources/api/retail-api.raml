@@ -1,0 +1,192 @@
+#%RAML 1.0
+title: Retail API
+baseUri: https://anypoint.mulesoft.com/mocking/api/v1/links/83136bdd-3143-404a-b9c2-3e1972fa7c66/ # baseUri: com.API.Retail
+version: v1
+description: Retail API provides users an integrated service to manage product inventory and bills in a retail business.
+
+types: 
+  product: !include DataTypes/product.raml
+  bill:  !include DataTypes/bill.raml
+  productCategory: !include DataTypes/productCategory.raml
+
+traits:
+  statusCode1: !include statusCodeTraits.raml
+
+/prducts:
+  get:
+    description: retrieves all product data
+    responses:
+       200:
+        body:
+          application/json: 
+            type: product[]
+            example: !include Examples/GetAllProduct.json
+    is: [statusCode1]
+  post:
+    description: Creates a new product
+    responses:
+      201:
+        body:
+          application/json:
+            example:
+              {Message: "created successfully"} 
+    is: [statusCode1]
+  /id:        
+    get:
+      description: retrives a specific product using product id
+      queryParameters:
+        id:
+          type: integer
+          required: true
+      responses:
+        200:
+          body:
+            application/json:
+              type: product
+              example: !include Examples/GetProduct.json
+      is: [statusCode1]
+    put:
+      description: updates a specific product using product id
+      queryParameters:
+        id:
+          type: integer
+          required: true
+      responses:
+        200: 
+          body:
+            application/json:
+              example:
+                {Message: "updated successfully"} 
+      is: [statusCode1]
+    delete:
+      description: removes a specific product using product id
+      queryParameters:
+        id:
+          type: integer
+          required: true
+      responses:
+        200:
+          body:
+            application/json:
+              example:
+                {Message: "deleted successfully"} 
+      is: [statusCode1]             
+/bills:
+  get:
+    description: retrieves all bill data
+    responses:
+      200:
+        body:
+          application/json:
+            type: bill[]
+            example: !include Examples/GetAllBill.json
+    is: [statusCode1]
+  post:
+    description: creates a new bill resource
+    responses:
+      201: 
+        body:
+          application/json:
+            example:
+              {Message:  "created successfully"}
+    is: [statusCode1]   
+  /id:
+    get:
+      description: retrieves a specific bill using bill id
+      queryParameters:
+        id:
+          type: integer
+          required: true
+      responses:
+        200:
+          body:
+            application/json:
+              type: bill
+              example: !include Examples/GetBill.json
+      is: [statusCode1]    
+    put:
+      description: updates a specific bill using bill id
+      queryParameters:
+        id:
+          type: integer
+          required: true
+      responses:
+        200: 
+          body:
+            application/json:
+              example:
+                {Message: "updated successfully"} 
+      is: [statusCode1]
+    delete:
+      description: removes a specific bil using bill id
+      queryParameters:
+        id:
+          type: integer
+          required: true
+      responses:
+        200:
+          body:
+            application/json:
+              example:
+                {Message: "deleted successfully"}
+      is: [statusCode1] 
+/productcategory:
+  get:
+    description: retrieves all product catagory data
+    responses:
+      200:
+        body:
+          application/json:
+            type: productCategory[]
+            example: !include Examples/GetAllProductCategory.json
+    is: [statusCode1]
+  post:
+    description: creates a new product category resource
+    responses:
+      201:
+        body:
+          application/json:
+            example:
+              {Message: "created successfully"}
+    is: [statusCode1] 
+  /id: 
+    get:
+      description: retrieves a specific product category using id
+      queryParameters:
+        id:
+          type: integer
+          required: true
+      responses:
+        200:
+          body:
+            application/json:
+              type: productCategory
+              example: !include Examples/GetProductCategory.json
+      is: [statusCode1]
+    put:
+      description: updates a specific product category using id
+      queryParameters:
+        id:
+          type: integer
+          required: true
+      responses:
+        200: 
+          body:
+            application/json:
+              example:
+                {Message: "updated successfully"}
+      is: [statusCode1]
+    delete:
+      description: removes a specific product category using product category id
+      queryParameters:
+        id:
+          type: integer
+          required: true
+      responses:
+        200:
+          body:
+            application/json:
+              example:
+                {Message: "deleted successfully"}
+      is: [statusCode1]
+        
